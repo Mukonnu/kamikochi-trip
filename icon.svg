@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mountain" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="200" height="200" fill="url(#sky)" />
+  
+  <!-- 山 -->
+  <path d="M0 200L60 80L100 140L140 60L200 200Z" fill="url(#mountain)" />
+  
+  <!-- 川 -->
+  <path d="M80 200Q100 160 120 200" stroke="#4FC3F7" stroke-width="8" fill="none" />
+  
+  <!-- 太陽 -->
+  <circle cx="160" cy="40" r="20" fill="#FFD54F" />
+  <g stroke="#FFD54F" stroke-width="2">
+    <line x1="160" y1="10" x2="160" y2="0" />
+    <line x1="160" y1="70" x2="160" y2="80" />
+    <line x1="130" y1="40" x2="120" y2="40" />
+    <line x1="190" y1="40" x2="200" y2="40" />
+    <line x1="139" y1="19" x2="132" y2="12" />
+    <line x1="181" y1="61" x2="188" y2="68" />
+    <line x1="181" y1="19" x2="188" y2="12" />
+    <line x1="139" y1="61" x2="132" y2="68" />
+  </g>
+  
+  <!-- 木 -->
+  <path d="M50 200L50 150L30 150L50 130L40 130L60 110L80 130L70 130L90 150L70 150L70 200Z" fill="#388E3C" />
+</svg>

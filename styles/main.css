@@ -7,18 +7,32 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
     margin: 0;
     padding: 10px;
     box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    --background-color: #1a1a1a;
+    --text-color: #f4f4f4;
+    --card-bg: #2c2c2c;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 h1, h2, h3 {
@@ -38,7 +52,7 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin-bottom: 15px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s;
 }
 
 .map-container {
@@ -91,6 +105,40 @@ footer {
     color: #777;
 }
 
+#darkModeToggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.toggle-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.collapsible {
+    display: none;
+}
+
+#checklist {
+    list-style-type: none;
+    padding: 0;
+}
+
+#checklist li {
+    margin-bottom: 10px;
+}
+
+#checklist input[type="checkbox"] {
+    margin-right: 10px;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -109,6 +157,21 @@ footer {
         padding: 12px;
     }
     .map-container {
-        padding-bottom: 100%; /* スマートフォンでより正方形に近い地図 */
+        padding-bottom: 100%;
+    }
+}
+
+@media print {
+    body {
+        font-size: 12pt;
+    }
+    .card {
+        page-break-inside: avoid;
+    }
+    #darkModeToggle, .toggle-btn {
+        display: none;
+    }
+    .collapsible {
+        display: block !important;
     }
 }

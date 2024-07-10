@@ -1,0 +1,15 @@
+{
+    "name": "上高地旅行しおり",
+    "short_name": "上高地旅行",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#E0F6FF",
+    "theme_color": "#87CEEB",
+    "icons": [
+      {
+        "src": "icon.svg",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      }
+    ]
+  }

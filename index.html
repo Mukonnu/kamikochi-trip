@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>上高地旅行しおり - 2024年7月12日〜13日</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3498db">
 </head>
 <body>
     <div class="container">
-        <h1>🏔 上高地旅行しおり</h1>
-        <h2>2024年7月12日（金）〜 13日（土）</h2>
+        <header>
+            <h1>🏔 上高地旅行しおり</h1>
+            <h2>2024年7月12日（金）〜 13日（土）</h2>
+            <button id="darkModeToggle" aria-label="ダークモード切り替え">🌓</button>
+        </header>
 
         <div class="card">
             <h3>👥 参加者</h3>
@@ -20,119 +26,125 @@
 
         <div class="card" id="day1">
             <h2>📅 1日目: 7月12日（金）</h2>
-            <h3>🚗 移動: 平塚 → 松本</h3>
-            <ul>
-                <li><strong>14:00</strong> 平塚出発</li>
-                <li><strong>予想所要時間</strong>: 2時間45分（金曜日のため渋滞の可能性あり）</li>
-                <li><strong>高速道路料金</strong>: 5,320円</li>
-            </ul>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="day1-content">詳細を表示/非表示</button>
+            <div id="day1-content" class="collapsible">
+                <h3>🚗 移動: 平塚 → 松本</h3>
+                <ul>
+                    <li><strong>14:00</strong> 平塚出発</li>
+                    <li><strong>予想所要時間</strong>: 2時間45分（金曜日のため渋滞の可能性あり）</li>
+                    <li><strong>高速道路料金</strong>: 5,320円</li>
+                </ul>
 
-            <h3>🏨 ホテルチェックイン</h3>
-            <ul>
-                <li><strong>18:00頃</strong> プレミアホテル-CABIN-松本 到着</li>
-                <li><strong>料金</strong>: 26,514円（1人あたり 5,302円）</li>
-                <li><strong>部屋割り</strong>:
-                    <ul>
-                        <li>ツインルーム（3人）: ダブルベッド1台、シングルベッド1台</li>
-                        <li>ダブルルーム（2人）: ダブルベッド1台</li>
-                    </ul>
-                </li>
-                <li><strong>ホテル公式サイト</strong>: <a href="https://www.booking.com/hotel/jp/toko-city-matsumoto.ja.html?aid=2328145&label=msn-%2AaNxRwC1rxO39USMgM6FgQ-80676851672562%3Atikwd-80677022287023%3Aloc-96%3Aneo%3Amte%3Alp138321%3Adec%3Aqs%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%9B%E3%83%86%E3%83%AB-CABIN-%E6%9D%BE%E6%9C%AC&sid=8ba3fbfaaa73261d6df9b7df617e0438&dest_id=-235949;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1720599685;srpvid=b99e3abfa3ee0036;type=total;ucfs=1&#hotelTmpl" target="_blank">プレミアホテル-CABIN-松本</a></li>
-            </ul>
+                <h3>🏨 ホテルチェックイン</h3>
+                <ul>
+                    <li><strong>18:00頃</strong> プレミアホテル-CABIN-松本 到着</li>
+                    <li><strong>料金</strong>: 26,514円（1人あたり 5,302円）</li>
+                    <li><strong>部屋割り</strong>:
+                        <ul>
+                            <li>ツインルーム（3人）: ダブルベッド1台、シングルベッド1台</li>
+                            <li>ダブルルーム（2人）: ダブルベッド1台</li>
+                        </ul>
+                    </li>
+                    <li><strong>ホテル公式サイト</strong>: <a href="https://www.booking.com/hotel/jp/toko-city-matsumoto.ja.html?aid=2328145&label=msn-%2AaNxRwC1rxO39USMgM6FgQ-80676851672562%3Atikwd-80677022287023%3Aloc-96%3Aneo%3Amte%3Alp138321%3Adec%3Aqs%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%9B%E3%83%86%E3%83%AB-CABIN-%E6%9D%BE%E6%9C%AC&sid=8ba3fbfaaa73261d6df9b7df617e0438&dest_id=-235949;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1720599685;srpvid=b99e3abfa3ee0036;type=total;ucfs=1&#hotelTmpl" target="_blank">プレミアホテル-CABIN-松本</a></li>
+                </ul>
 
-            <h3>🍻 夕食・飲み</h3>
-            <ul>
-                <li><strong>19:00</strong> 大衆酒場 加賀家
-                    <br><a href="https://tabelog.com/nagano/A2002/A200201/20024642/" target="_blank">食べログページ</a>
-                </li>
-                <li><strong>20:30</strong> 深酒（日本酒専門居酒屋）
-                    <br><a href="https://fukazake.net/" target="_blank">公式ウェブサイト</a>
-                </li>
-            </ul>
+                <h3>🍻 夕食・飲み</h3>
+                <ul>
+                    <li><strong>19:00</strong> 大衆酒場 加賀家
+                        <br><a href="https://tabelog.com/nagano/A2002/A200201/20024642/" target="_blank">食べログページ</a>
+                    </li>
+                    <li><strong>20:30</strong> 深酒（日本酒専門居酒屋）
+                        <br><a href="https://fukazake.net/" target="_blank">公式ウェブサイト</a>
+                    </li>
+                </ul>
 
-            <h3>🗺️ 松本市内マップ</h3>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1lT_K80TZHZ0vrul_pJF1Qvh9Vl5ja9w&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+                <h3>🗺️ 松本市内マップ</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1lT_K80TZHZ0vrul_pJF1Qvh9Vl5ja9w&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+                </div>
             </div>
         </div>
 
         <div class="card" id="day2">
             <h2>📅 2日目: 7月13日（土）</h2>
-            <h3>🚗 移動: 松本 → 沢渡</h3>
-            <ul>
-                <li><strong>07:00</strong> ホテル出発</li>
-                <li><strong>予想所要時間</strong>: 50分</li>
-            </ul>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="day2-content">詳細を表示/非表示</button>
+            <div id="day2-content" class="collapsible">
+                <h3>🚗 移動: 松本 → 沢渡</h3>
+                <ul>
+                    <li><strong>07:00</strong> ホテル出発</li>
+                    <li><strong>予想所要時間</strong>: 50分</li>
+                </ul>
 
-            <h3>🗺️ 松本から沢渡への経路</h3>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d102738.40733881673!2d137.82856755454983!3d36.20744512049545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x601d0eff0ec4cacf%3A0xc4fe86fdc1e0e13f!2z44OX44Os44Of44Ki44Ob44OG44Or44O8Q0FCSU4g5p2-5pys!3m2!1d36.2316859!2d137.9721568!4m5!1s0x601d1421f5367ca9%3A0x688467cad8da39b5!2z5rKi5rih6aeF5YmN44OQ44K544K_44O844Of44OK44Or!3m2!1d36.2515431!2d137.6363538!5e0!3m2!1sja!2sjp!4v1689015557438!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h3>🗺️ 松本から沢渡への経路</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d102738.40733881673!2d137.82856755454983!3d36.20744512049545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x601d0eff0ec4cacf%3A0xc4fe86fdc1e0e13f!2z44OX44Os44Of44Ki44Ob44OG44Or44O8Q0FCSU4g5p2-5pys!3m2!1d36.2316859!2d137.9721568!4m5!1s0x601d1421f5367ca9%3A0x688467cad8da39b5!2z5rKi5rih6aeF5YmN44OQ44K544K_44O844Of44OK44Or!3m2!1d36.2515431!2d137.6363538!5e0!3m2!1sja!2sjp!4v1689015557438!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <h3>🅿️ 沢渡駐車場</h3>
+                <ul>
+                    <li><strong>07:50頃</strong> 到着</li>
+                    <li><strong>料金</strong>: 700円</li>
+                    <li><strong>詳細情報</strong>: <a href="https://www.kamikochi.or.jp/access/sawando/" target="_blank">沢渡駐車場案内</a></li>
+                </ul>
+
+                <h3>🚌 沢渡 → 上高地</h3>
+                <ul>
+                    <li><strong>08:10</strong> バス乗車（4人以上の団体で往復2,500円/人）</li>
+                    <li><strong>08:50頃</strong> 上高地バスターミナル到着</li>
+                    <li><strong>バス情報</strong>: <a href="https://www.kamikochi.or.jp/access/bus/" target="_blank">アルピコ交通 路線バス情報</a></li>
+                </ul>
+
+                <h3>🏞 上高地観光プラン</h3>
+                <ul>
+                    <li><strong>09:00-10:00</strong> 河童橋と梓川の朝景を楽しむ、写真撮影</li>
+                    <li><strong>10:00-11:30</strong> 大正池まで往復散策（約3km）</li>
+                    <li><strong>11:30-13:00</strong> 明神池まで往復散策（約3km）</li>
+                    <li><strong>13:00-14:00</strong> 上高地ビジターセンター周辺で昼食・休憩</li>
+                    <li><strong>14:00-15:30</strong> 田代池まで散策、または自由時間</li>
+                    <li><strong>15:30-16:00</strong> バスターミナルへ移動、最後の景色を楽しむ</li>
+                </ul>
+
+                <h3>🗺️ 上高地マップ</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12897.873800266366!2d137.62429931531552!3d36.24801829649401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d1ee5d97d5555%3A0x9d30ea9d17ca6c4f!2z5LiK6auY5Zyw!5e0!3m2!1sja!2sjp!4v1689016382078!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <h3>🚌 上高地 → 沢渡</h3>
+                <ul>
+                    <li><strong>16:10</strong> バス乗車</li>
+                    <li><strong>16:50頃</strong> 沢渡駐車場到着</li>
+                </ul>
+
+                <h3>🍽 夕食 & ♨ 温泉</h3>
+                <h4>おすすめプラン: 松本市内</h4>
+                <ul>
+                    <li><strong>18:00-19:30</strong> 松本市内で温泉入浴 - おすすめ: 美ヶ原温泉 翔峰
+                        <br><a href="https://www.hotel-shoho.jp/hotspring/" target="_blank">公式ウェブサイト</a>
+                    </li>
+                    <li><strong>19:30-21:00</strong> 夕食 - おすすめ: 特になし
+                    </li>
+                </ul>
+
+                <h3>🛣 帰路</h3>
+                <ul>
+                    <li><strong>21:00頃</strong> 松本出発</li>
+                    <li><strong>23:45頃</strong> 平塚到着予定</li>
+                </ul>
             </div>
-
-            <h3>🅿️ 沢渡駐車場</h3>
-            <ul>
-                <li><strong>07:50頃</strong> 到着</li>
-                <li><strong>料金</strong>: 700円</li>
-                <li><strong>詳細情報</strong>: <a href="https://www.kamikochi.or.jp/access/sawando/" target="_blank">沢渡駐車場案内</a></li>
-            </ul>
-
-            <h3>🚌 沢渡 → 上高地</h3>
-            <ul>
-                <li><strong>08:10</strong> バス乗車（4人以上の団体で往復2,500円/人）</li>
-                <li><strong>08:50頃</strong> 上高地バスターミナル到着</li>
-                <li><strong>バス情報</strong>: <a href="https://www.kamikochi.or.jp/access/bus/" target="_blank">アルピコ交通 路線バス情報</a></li>
-            </ul>
-
-            <h3>🏞 上高地観光プラン</h3>
-            <ul>
-                <li><strong>09:00-10:00</strong> 河童橋と梓川の朝景を楽しむ、写真撮影</li>
-                <li><strong>10:00-11:30</strong> 大正池まで往復散策（約3km）</li>
-                <li><strong>11:30-13:00</strong> 明神池まで往復散策（約3km）</li>
-                <li><strong>13:00-14:00</strong> 上高地ビジターセンター周辺で昼食・休憩</li>
-                <li><strong>14:00-15:30</strong> 田代池まで散策、または自由時間</li>
-                <li><strong>15:30-16:00</strong> バスターミナルへ移動、最後の景色を楽しむ</li>
-            </ul>
-
-            <h3>🗺️ 上高地マップ</h3>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12897.873800266366!2d137.62429931531552!3d36.24801829649401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d1ee5d97d5555%3A0x9d30ea9d17ca6c4f!2z5LiK6auY5Zyw!5e0!3m2!1sja!2sjp!4v1689016382078!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <h3>🚌 上高地 → 沢渡</h3>
-            <ul>
-                <li><strong>16:10</strong> バス乗車</li>
-                <li><strong>16:50頃</strong> 沢渡駐車場到着</li>
-            </ul>
-
-            <h3>🍽 夕食 & ♨ 温泉</h3>
-            <h4>おすすめプラン: 松本市内</h4>
-            <ul>
-                <li><strong>18:00-19:30</strong> 松本市内で温泉入浴 - おすすめ: 美ヶ原温泉 翔峰
-                    <br><a href="https://www.hotel-shoho.jp/hotspring/" target="_blank">公式ウェブサイト</a>
-                </li>
-                <li><strong>19:30-21:00</strong> 夕食 - おすすめ: 特になし
-                </li>
-            </ul>
-
-            <h3>🛣 帰路</h3>
-            <ul>
-                <li><strong>21:00頃</strong> 松本出発</li>
-                <li><strong>23:45頃</strong> 平塚到着予定</li>
-            </ul>
         </div>
 
         <div class="card note">
             <h3>📝 メモ</h3>
             <ol>
                 <li>持ち物チェックリスト:
-                    <ul>
-                        <li>歩きやすい靴</li>
-                        <li>雨具（折りたたみ傘、レインコート）</li>
-                        <li>防寒着（上高地は朝晩冷えるので）</li>
-                        <li>日焼け止め</li>
-                        <li>虫よけスプレー</li>
-                        <li>モバイルバッテリー</li>
-                        <li>水筒</li>
+                    <ul id="checklist">
+                        <li><input type="checkbox" id="item1"><label for="item1">歩きやすい靴</label></li>
+                        <li><input type="checkbox" id="item2"><label for="item2">雨具（折りたたみ傘、レインコート）</label></li>
+                        <li><input type="checkbox" id="item3"><label for="item3">防寒着（上高地は朝晩冷えるので）</label></li>
+                        <li><input type="checkbox" id="item4"><label for="item4">日焼け止め</label></li>
+                        <li><input type="checkbox" id="item5"><label for="item5">虫よけスプレー</label></li>
+                        <li><input type="checkbox" id="item6"><label for="item6">モバイルバッテリー</label></li>
+                        <li><input type="checkbox" id="item7"><label for="item7">水筒</label></li>
                     </ul>
                 </li>
                 <li>上高地での注意事項:
@@ -166,14 +178,23 @@
             </ul>
         </div>
 
+        <div class="card gallery">
+            <h3>📸 上高地の風景</h3>
+            <div class="image-gallery">
+                <img src="images/kamikochi1.jpg" alt="上高地の風景1" loading="lazy">
+                <img src="images/kamikochi2.jpg" alt="上高地の風景2" loading="lazy">
+                <img src="images/kamikochi3.jpg" alt="上高地の風景3" loading="lazy">
+            </div>
+        </div>
+
         <div class="card">
             <p class="center-text">素晴らしい旅をお楽しみください！ 🌟</p>
         </div>
     </div>
 
     <footer>
-        <p>作成日: 2024年7月10日</p>
-        <p>最終更新: 2024年7月10日</p>
+        <p>作成日: 2024年6月30日</p>
+        <p>最終更新: 2024年7月5日</p>
     </footer>
 
     <script src="scripts/main.js"></script>
