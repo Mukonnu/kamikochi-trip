@@ -4,93 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>上高地旅行しおり - 2024年7月12日〜13日</title>
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --background-color: #f4f4f4;
-            --text-color: #333;
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1, h2, h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-        h1 {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .map-container {
-            position: relative;
-            padding-bottom: 75%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100% !important;
-            height: 100% !important;
-            border-radius: 10px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: var(--secondary-color);
-        }
-        .note {
-            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .card {
-                padding: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <div class="container">
@@ -104,7 +18,7 @@
             </ul>
         </div>
 
-        <div class="card">
+        <div class="card" id="day1">
             <h2>📅 1日目: 7月12日（金）</h2>
             <h3>🚗 移動: 平塚 → 松本</h3>
             <ul>
@@ -142,7 +56,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="day2">
             <h2>📅 2日目: 7月13日（土）</h2>
             <h3>🚗 移動: 松本 → 沢渡</h3>
             <ul>
@@ -253,14 +167,15 @@
         </div>
 
         <div class="card">
-            <p style="text-align: center; font-size: 1.2em; font-weight: bold;">素晴らしい旅をお楽しみください！ 🌟</p>
+            <p class="center-text">素晴らしい旅をお楽しみください！ 🌟</p>
         </div>
     </div>
 
-    <footer style="text-align: center; margin-top: 20px; font-size: 0.8em; color: #777;">
+    <footer>
         <p>作成日: 2024年7月10日</p>
         <p>最終更新: 2024年7月10日</p>
     </footer>
 
+    <script src="scripts/main.js"></script>
 </body>
 </html>
