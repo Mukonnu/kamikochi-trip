@@ -70,26 +70,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const weatherContainer = document.getElementById('weather-forecast');
         try {
             const response = await fetch(`https://www.jma.go.jp/bosai/forecast/data/forecast/${MATSUMOTO_AREA_CODE}.json`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const data = await response.json();
             
+            // データの構造を確認
+            if (!data || !data[0] || !data[0].timeSeries || !data[0].timeSeries[0]) {
+                throw new Error('Unexpected data structure');
+            }
+
             // 3日間の天気予報を取得
             const forecast = data[0].timeSeries[0];
             const timeDefines = forecast.timeDefines.slice(0, 3);
             const weatherCodes = forecast.areas[0].weatherCodes.slice(0, 3);
-            const temps = data[0].timeSeries[2].areas[0].temps.slice(0, 6);
+
+            // 気温データの取得（存在する場合）
+            let temps = [];
+            if (data[0].timeSeries[2] && data[0].timeSeries[2].areas[0].temps) {
+                temps = data[0].timeSeries[2].areas[0].temps.slice(0, 6);
+            }
 
             // 3日分の天気予報を表示
             weatherContainer.innerHTML = timeDefines.map((time, index) => `
                 <div class="weather-day">
                     <div class="weather-icon">${getWeatherIcon(weatherCodes[index])}</div>
                     <div>${new Date(time).toLocaleDateString('ja-JP', {month: 'short', day: 'numeric'})}</div>
-                    <div>${temps[index * 2]}°C / ${temps[index * 2 + 1]}°C</div>
+                    ${temps.length ? `<div>${temps[index * 2] || '--'}°C / ${temps[index * 2 + 1] || '--'}°C</div>` : ''}
                     <div>${getWeatherText(weatherCodes[index])}</div>
                 </div>
             `).join('');
         } catch (error) {
             console.error('天気データの取得に失敗しました:', error);
-            weatherContainer.innerHTML = '<p>天気情報を取得できませんでした。</p>';
+            weatherContainer.innerHTML = '<p>天気情報を取得できませんでした。しばらくしてから再度お試しください。</p>';
         }
     }
 
