@@ -69,35 +69,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
     async function fetchWeatherForecast() {
         const weatherContainer = document.getElementById('weather-forecast');
         try {
-            const response = await fetch(`https://www.jma.go.jp/bosai/forecast/data/forecast/${MATSUMOTO_AREA_CODE}.json`);
+            const response = await fetch('http://localhost:3000/weather'); // プロキシサーバーのURLを使用
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            
-            // データの構造を確認
-            if (!data || !data[0] || !data[0].timeSeries || !data[0].timeSeries[0]) {
-                throw new Error('Unexpected data structure');
-            }
-
+    
+            // 中部地域の天気予報データを取得
+            const chubuArea = data[0].timeSeries[0].areas.find(area => area.area.name === "中部");
+    
             // 3日間の天気予報を取得
-            const forecast = data[0].timeSeries[0];
-            const timeDefines = forecast.timeDefines.slice(0, 3);
-            const weatherCodes = forecast.areas[0].weatherCodes.slice(0, 3);
-
-            // 気温データの取得（存在する場合）
-            let temps = [];
-            if (data[0].timeSeries[2] && data[0].timeSeries[2].areas[0].temps) {
-                temps = data[0].timeSeries[2].areas[0].temps.slice(0, 6);
-            }
-
+            const timeDefines = data[0].timeSeries[0].timeDefines.slice(0, 3);
+            const weatherCodes = chubuArea.weatherCodes.slice(0, 3);
+            const weathers = chubuArea.weathers.slice(0, 3);
+            const winds = chubuArea.winds.slice(0, 3);
+    
             // 3日分の天気予報を表示
             weatherContainer.innerHTML = timeDefines.map((time, index) => `
                 <div class="weather-day">
                     <div class="weather-icon">${getWeatherIcon(weatherCodes[index])}</div>
                     <div>${new Date(time).toLocaleDateString('ja-JP', {month: 'short', day: 'numeric'})}</div>
-                    ${temps.length ? `<div>${temps[index * 2] || '--'}°C / ${temps[index * 2 + 1] || '--'}°C</div>` : ''}
-                    <div>${getWeatherText(weatherCodes[index])}</div>
+                    <div>${weathers[index]}</div>
+                    <div>${winds[index]}</div>
                 </div>
             `).join('');
         } catch (error) {
