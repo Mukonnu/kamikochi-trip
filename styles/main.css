@@ -175,3 +175,51 @@ footer {
         display: block !important;
     }
 }
+.image-gallery-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--background-color);
+}
+
+.image-gallery {
+    display: flex;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.image-gallery img {
+    width: 280px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* カスタムスクロールバーのスタイル（Webkit系ブラウザ用） */
+.image-gallery-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.image-gallery-container::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+.image-gallery-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    border: 3px solid var(--background-color);
+}
+
+@media (max-width: 600px) {
+    .image-gallery img {
+        width: 240px;
+        height: 180px;
+    }
+}
