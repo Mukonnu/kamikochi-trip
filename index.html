@@ -5,36 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>上高地旅行しおり - 2024年7月12日〜13日</title>
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
             padding: 20px;
             box-sizing: border-box;
         }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
         h1, h2, h3 {
-            color: #2c3e50;
+            color: var(--primary-color);
+            margin-top: 0;
         }
-        .day {
-            background-color: #ecf0f1;
-            padding: 15px;
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             margin-bottom: 20px;
-            border-radius: 5px;
+            transition: transform 0.3s ease;
         }
-        .note {
-            background-color: #f9e79f;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
+        .card:hover {
+            transform: translateY(-5px);
         }
         .map-container {
             position: relative;
-            padding-bottom: 75%; /* 4:3 アスペクト比 */
+            padding-bottom: 75%;
             height: 0;
             overflow: hidden;
             max-width: 100%;
+            border-radius: 10px;
             margin: 20px 0;
         }
         .map-container iframe {
@@ -43,184 +60,207 @@
             left: 0;
             width: 100% !important;
             height: 100% !important;
+            border-radius: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--secondary-color);
+        }
+        .note {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
         }
         @media (max-width: 600px) {
             body {
                 padding: 10px;
             }
             h1 {
-                font-size: 24px;
+                font-size: 2em;
             }
-            h2 {
-                font-size: 20px;
-            }
-            h3 {
-                font-size: 18px;
-            }
-            .day, .note {
-                padding: 10px;
+            .card {
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>🏔 上高地旅行しおり</h1>
-    <h2>2024年7月12日（金）〜 13日（土）</h2>
+    <div class="container">
+        <h1>🏔 上高地旅行しおり</h1>
+        <h2>2024年7月12日（金）〜 13日（土）</h2>
 
-    <h3>👥 参加者</h3>
-    <ul>
-        <li>土岐　神原　宇都宮　田中　細岡</li>
-    </ul>
+        <div class="card">
+            <h3>👥 参加者</h3>
+            <ul>
+                <li>土岐　神原　宇都宮　田中　細岡</li>
+            </ul>
+        </div>
 
-    <div class="day">
-        <h2>📅 1日目: 7月12日（金）</h2>
-        <h3>🚗 移動: 平塚 → 松本</h3>
-        <ul>
-            <li><strong>14:00</strong> 平塚出発</li>
-            <li><strong>予想所要時間</strong>: 2時間45分（金曜日のため渋滞の可能性あり）</li>
-            <li><strong>高速道路料金</strong>: 5,320円</li>
-        </ul>
+        <div class="card">
+            <h2>📅 1日目: 7月12日（金）</h2>
+            <h3>🚗 移動: 平塚 → 松本</h3>
+            <ul>
+                <li><strong>14:00</strong> 平塚出発</li>
+                <li><strong>予想所要時間</strong>: 2時間45分（金曜日のため渋滞の可能性あり）</li>
+                <li><strong>高速道路料金</strong>: 5,320円</li>
+            </ul>
 
-        <h3>🏨 ホテルチェックイン</h3>
-        <ul>
-            <li><strong>18:00頃</strong> プレミアホテル-CABIN-松本 到着</li>
-            <li><strong>料金</strong>: 26,514円（1人あたり 5,302円）</li>
-            <li><strong>部屋割り</strong>:
-                <ul>
-                    <li>ツインルーム（3人）: ダブルベッド1台、シングルベッド1台</li>
-                    <li>ダブルルーム（2人）: ダブルベッド1台</li>
-                </ul>
-            </li>
-            <li><strong>ホテル公式サイト</strong>: <a href="https://www.booking.com/hotel/jp/toko-city-matsumoto.ja.html?aid=2328145&label=msn-%2AaNxRwC1rxO39USMgM6FgQ-80676851672562%3Atikwd-80677022287023%3Aloc-96%3Aneo%3Amte%3Alp138321%3Adec%3Aqs%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%9B%E3%83%86%E3%83%AB-CABIN-%E6%9D%BE%E6%9C%AC&sid=8ba3fbfaaa73261d6df9b7df617e0438&dest_id=-235949;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1720599685;srpvid=b99e3abfa3ee0036;type=total;ucfs=1&#hotelTmpl" target="_blank">プレミアホテル-CABIN-松本</a></li>
-        </ul>
+            <h3>🏨 ホテルチェックイン</h3>
+            <ul>
+                <li><strong>18:00頃</strong> プレミアホテル-CABIN-松本 到着</li>
+                <li><strong>料金</strong>: 26,514円（1人あたり 5,302円）</li>
+                <li><strong>部屋割り</strong>:
+                    <ul>
+                        <li>ツインルーム（3人）: ダブルベッド1台、シングルベッド1台</li>
+                        <li>ダブルルーム（2人）: ダブルベッド1台</li>
+                    </ul>
+                </li>
+                <li><strong>ホテル公式サイト</strong>: <a href="https://www.booking.com/hotel/jp/toko-city-matsumoto.ja.html?aid=2328145&label=msn-%2AaNxRwC1rxO39USMgM6FgQ-80676851672562%3Atikwd-80677022287023%3Aloc-96%3Aneo%3Amte%3Alp138321%3Adec%3Aqs%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%9B%E3%83%86%E3%83%AB-CABIN-%E6%9D%BE%E6%9C%AC&sid=8ba3fbfaaa73261d6df9b7df617e0438&dest_id=-235949;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;hpos=1;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;srepoch=1720599685;srpvid=b99e3abfa3ee0036;type=total;ucfs=1&#hotelTmpl" target="_blank">プレミアホテル-CABIN-松本</a></li>
+            </ul>
 
-        <h3>🍻 夕食・飲み</h3>
-        <ul>
-            <li><strong>19:00</strong> 大衆酒場 加賀家
-                <br><a href="https://tabelog.com/nagano/A2002/A200201/20024642/" target="_blank">食べログページ</a>
-            </li>
-            <li><strong>20:30</strong> 深酒（日本酒専門居酒屋）
-                <br><a href="https://fukazake.net/" target="_blank">公式ウェブサイト</a>
-            </li>
-        </ul>
+            <h3>🍻 夕食・飲み</h3>
+            <ul>
+                <li><strong>19:00</strong> 大衆酒場 加賀家
+                    <br><a href="https://tabelog.com/nagano/A2002/A200201/20024642/" target="_blank">食べログページ</a>
+                </li>
+                <li><strong>20:30</strong> 深酒（日本酒専門居酒屋）
+                    <br><a href="https://fukazake.net/" target="_blank">公式ウェブサイト</a>
+                </li>
+            </ul>
 
-        <h3>🗺️ 松本市内マップ</h3>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1lT_K80TZHZ0vrul_pJF1Qvh9Vl5ja9w&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+            <h3>🗺️ 松本市内マップ</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1lT_K80TZHZ0vrul_pJF1Qvh9Vl5ja9w&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📅 2日目: 7月13日（土）</h2>
+            <h3>🚗 移動: 松本 → 沢渡</h3>
+            <ul>
+                <li><strong>07:00</strong> ホテル出発</li>
+                <li><strong>予想所要時間</strong>: 50分</li>
+            </ul>
+
+            <h3>🗺️ 松本から沢渡への経路</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d102738.40733881673!2d137.82856755454983!3d36.20744512049545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x601d0eff0ec4cacf%3A0xc4fe86fdc1e0e13f!2z44OX44Os44Of44Ki44Ob44OG44Or44O8Q0FCSU4g5p2-5pys!3m2!1d36.2316859!2d137.9721568!4m5!1s0x601d1421f5367ca9%3A0x688467cad8da39b5!2z5rKi5rih6aeF5YmN44OQ44K544K_44O844Of44OK44Or!3m2!1d36.2515431!2d137.6363538!5e0!3m2!1sja!2sjp!4v1689015557438!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <h3>🅿️ 沢渡駐車場</h3>
+            <ul>
+                <li><strong>07:50頃</strong> 到着</li>
+                <li><strong>料金</strong>: 700円</li>
+                <li><strong>詳細情報</strong>: <a href="https://www.kamikochi.or.jp/access/sawando/" target="_blank">沢渡駐車場案内</a></li>
+            </ul>
+
+            <h3>🚌 沢渡 → 上高地</h3>
+            <ul>
+                <li><strong>08:10</strong> バス乗車（4人以上の団体で往復2,500円/人）</li>
+                <li><strong>08:50頃</strong> 上高地バスターミナル到着</li>
+                <li><strong>バス情報</strong>: <a href="https://www.kamikochi.or.jp/access/bus/" target="_blank">アルピコ交通 路線バス情報</a></li>
+            </ul>
+
+            <h3>🏞 上高地観光プラン</h3>
+            <ul>
+                <li><strong>09:00-10:00</strong> 河童橋と梓川の朝景を楽しむ、写真撮影</li>
+                <li><strong>10:00-11:30</strong> 大正池まで往復散策（約3km）</li>
+                <li><strong>11:30-13:00</strong> 明神池まで往復散策（約3km）</li>
+                <li><strong>13:00-14:00</strong> 上高地ビジターセンター周辺で昼食・休憩</li>
+                <li><strong>14:00-15:30</strong> 田代池まで散策、または自由時間</li>
+                <li><strong>15:30-16:00</strong> バスターミナルへ移動、最後の景色を楽しむ</li>
+            </ul>
+
+            <h3>🗺️ 上高地マップ</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12897.873800266366!2d137.62429931531552!3d36.24801829649401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d1ee5d97d5555%3A0x9d30ea9d17ca6c4f!2z5LiK6auY5Zyw!5e0!3m2!1sja!2sjp!4v1689016382078!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <h3>🚌 上高地 → 沢渡</h3>
+            <ul>
+                <li><strong>16:10</strong> バス乗車</li>
+                <li><strong>16:50頃</strong> 沢渡駐車場到着</li>
+            </ul>
+
+            <h3>🍽 夕食 & ♨ 温泉</h3>
+            <h4>おすすめプラン: 松本市内</h4>
+            <ul>
+                <li><strong>18:00-19:30</strong> 松本市内で温泉入浴 - おすすめ: 美ヶ原温泉 翔峰
+                    <br><a href="https://www.hotel-shoho.jp/hotspring/" target="_blank">公式ウェブサイト</a>
+                </li>
+                <li><strong>19:30-21:00</strong> 夕食 - おすすめ: 特になし
+                </li>
+            </ul>
+
+            <h3>🛣 帰路</h3>
+            <ul>
+                <li><strong>21:00頃</strong> 松本出発</li>
+                <li><strong>23:45頃</strong> 平塚到着予定</li>
+            </ul>
+        </div>
+
+        <div class="card note">
+            <h3>📝 メモ</h3>
+            <ol>
+                <li>持ち物チェックリスト:
+                    <ul>
+                        <li>歩きやすい靴</li>
+                        <li>雨具（折りたたみ傘、レインコート）</li>
+                        <li>防寒着（上高地は朝晩冷えるので）</li>
+                        <li>日焼け止め</li>
+                        <li>虫よけスプレー</li>
+                        <li>モバイルバッテリー</li>
+                        <li>水筒</li>
+                    </ul>
+                </li>
+                <li>上高地での注意事項:
+                    <ul>
+                        <li>ゴミの持ち帰り</li>
+                        <li>野生動物に注意（特にサル）</li>
+                        <li>自然保護に協力</li>
+                        <li>歩道から外れないこと</li>
+                    </ul>
+                </li>
+                <li>上高地は標高約1,500mの高地です。高山病に注意し、十分な水分補給を心がけましょう。</li>
+                <li>天候によってはスケジュールの変更が必要になる場合があります。柔軟に対応しましょう。</li>
+                <li>上高地ビジターセンターでは、最新の自然情報や安全情報を入手できます。</li>
+                <li>上高地の詳細情報: <a href="https://www.kamikochi.or.jp/" target="_blank">上高地公式ウェブサイト</a></li>
+                <li>緊急時の連絡先:
+                    <ul>
+                        <li>上高地警察署: 0263-95-2110</li>
+                        <li>松本広域消防局: 0263-38-0119</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="card note">
+            <h3>💡 追加情報</h3>
+            <ul>
+                <li>上高地では、携帯電話の電波が弱い場所があります。重要な連絡は早めに済ませておきましょう。</li>
+                <li>山岳地帯の天候は変わりやすいので、最新の天気予報を確認し、それに応じた準備をしてください。</li>
+                <li>体調管理に気をつけ、無理のない行動を心がけましょう。</li>
+                <li>自然を大切にし、美しい景観を次世代に残すため、ルールとマナーを守りましょう。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <p style="text-align: center; font-size: 1.2em; font-weight: bold;">素晴らしい旅をお楽しみください！ 🌟</p>
         </div>
     </div>
 
-    <div class="day">
-        <h2>📅 2日目: 7月13日（土）</h2>
-        <h3>🚗 移動: 松本 → 沢渡</h3>
-        <ul>
-            <li><strong>07:00</strong> ホテル出発</li>
-            <li><strong>予想所要時間</strong>: 50分</li>
-        </ul>
-
-        <h3>🗺️ 松本から沢渡への経路</h3>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d102738.40733881673!2d137.82856755454983!3d36.20744512049545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x601d0eff0ec4cacf%3A0xc4fe86fdc1e0e13f!2z44OX44Os44Of44Ki44Ob44OG44Or44O8Q0FCSU4g5p2-5pys!3m2!1d36.2316859!2d137.9721568!4m5!1s0x601d1421f5367ca9%3A0x688467cad8da39b5!2z5rKi5rih6aeF5YmN44OQ44K544K_44O844Of44OK44Or!3m2!1d36.2515431!2d137.6363538!5e0!3m2!1sja!2sjp!4v1689015557438!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <h3>🅿️ 沢渡駐車場</h3>
-        <ul>
-            <li><strong>07:50頃</strong> 到着</li>
-            <li><strong>料金</strong>: 700円</li>
-            <li><strong>詳細情報</strong>: <a href="https://www.kamikochi.or.jp/access/sawando/" target="_blank">沢渡駐車場案内</a></li>
-        </ul>
-
-        <h3>🚌 沢渡 → 上高地</h3>
-        <ul>
-            <li><strong>08:10</strong> バス乗車（4人以上の団体で往復2,500円/人）</li>
-            <li><strong>08:50頃</strong> 上高地バスターミナル到着</li>
-            <li><strong>バス情報</strong>: <a href="https://www.kamikochi.or.jp/access/bus/" target="_blank">アルピコ交通 路線バス情報</a></li>
-        </ul>
-
-        <h3>🏞 上高地観光プラン</h3>
-        <ul>
-            <li><strong>09:00-10:00</strong> 河童橋と梓川の朝景を楽しむ、写真撮影</li>
-            <li><strong>10:00-11:30</strong> 大正池まで往復散策（約3km）</li>
-            <li><strong>11:30-13:00</strong> 明神池まで往復散策（約3km）</li>
-            <li><strong>13:00-14:00</strong> 上高地ビジターセンター周辺で昼食・休憩</li>
-            <li><strong>14:00-15:30</strong> 田代池まで散策、または自由時間</li>
-            <li><strong>15:30-16:00</strong> バスターミナルへ移動、最後の景色を楽しむ</li>
-        </ul>
-
-        <h3>🗺️ 上高地マップ</h3>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12897.873800266366!2d137.62429931531552!3d36.24801829649401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601d1ee5d97d5555%3A0x9d30ea9d17ca6c4f!2z5LiK6auY5Zyw!5e0!3m2!1sja!2sjp!4v1689016382078!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <h3>🚌 上高地 → 沢渡</h3>
-        <ul>
-            <li><strong>16:10</strong> バス乗車</li>
-            <li><strong>16:50頃</strong> 沢渡駐車場到着</li>
-        </ul>
-
-        <h3>🍽 夕食 & ♨ 温泉</h3>
-        <h4>おすすめプラン: 松本市内</h4>
-        <ul>
-            <li><strong>18:00-19:30</strong> 松本市内で温泉入浴 - おすすめ: 美ヶ原温泉 翔峰
-                <br><a href="https://www.hotel-shoho.jp/hotspring/" target="_blank">公式ウェブサイト</a>
-            </li>
-            <li><strong>19:30-21:00</strong> 夕食 - おすすめ: 特になし
-            </li>
-        </ul>
-
-        <h3>🛣 帰路</h3>
-        <ul>
-            <li><strong>21:00頃</strong> 松本出発</li>
-            <li><strong>23:45頃</strong> 平塚到着予定</li>
-        </ul>
-    </div>
-
-    <div class="note">
-        <h3>📝 メモ</h3>
-        <ol>
-            <li>持ち物チェックリスト:
-                <ul>
-                    <li>歩きやすい靴</li>
-                    <li>雨具（折りたたみ傘、レインコート）</li>
-                    <li>防寒着（上高地は朝晩冷えるので）</li>
-                    <li>日焼け止め</li>
-                    <li>虫よけスプレー</li>
-                    <li>モバイルバッテリー</li>
-                    <li>水筒</li>
-                </ul>
-            </li>
-            <li>上高地での注意事項:
-                <ul>
-                    <li>ゴミの持ち帰り</li>
-                    <li>野生動物に注意（特にサル）</li>
-                    <li>自然保護に協力</li>
-                    <li>歩道から外れないこと</li>
-                </ul>
-            </li>
-            <li>上高地は標高約1,500mの高地です。高山病に注意し、十分な水分補給を心がけましょう。</li>
-            <li>天候によってはスケジュールの変更が必要になる場合があります。柔軟に対応しましょう。</li>
-            <li>上高地ビジターセンターでは、最新の自然情報や安全情報を入手できます。</li>
-            <li>上高地の詳細情報: <a href="https://www.kamikochi.or.jp/" target="_blank">上高地公式ウェブサイト</a></li>
-            <li>緊急時の連絡先:
-                <ul>
-                    <li>上高地警察署: 0263-95-2110</li>
-                    <li>松本広域消防局: 0263-38-0119</li>
-                </ul>
-            </li>
-        </ol>
-    </div>
-
-    <div class="note">
-        <h3>💡 追加情報</h3>
-        <ul>
-            <li>上高地では、携帯電話の電波が弱い場所があります。重要な連絡は早めに済ませておきましょう。</li>
-            <li>山岳地帯の天候は変わりやすいので、最新の天気予報を確認し、それに応じた準備をしてください。</li>
-            <li>体調管理に気をつけ、無理のない行動を心がけましょう。</li>
-            <li>自然を大切にし、美しい景観を次世代に残すため、ルールとマナーを守りましょう。</li>
-        </ul>
-    </div>
-
-    <p>素晴らしい旅をお楽しみください！ 🌟</p>
+    <footer style="text-align: center; margin-top: 20px; font-size: 0.8em; color: #777;">
+        <p>作成日: 2024年7月10日</p>
+        <p>最終更新: 2024年7月10日</p>
+    </footer>
 
 </body>
 </html>
