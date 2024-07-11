@@ -9,12 +9,14 @@ jobs:
   update-weather:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3  # v2から v3 に更新
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.PAT }}  # この行を追加
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3  # Node.jsセットアップアクションを追加
+      uses: actions/setup-node@v3
       with:
-        node-version: '20'  # Node.js 20を使用
+        node-version: '20'
 
     - name: Fetch weather data
       run: |
