@@ -12,7 +12,7 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -24,15 +24,13 @@ body.dark-mode {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 h1, h2, h3 {
@@ -41,72 +39,23 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+h3 {
+    font-size: 1.2em;
 }
 
 .card {
     background-color: var(--card-bg);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, background-color 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.map-container {
-    position: relative;
-    padding-bottom: 75%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-.map-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    border-radius: 10px;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover, a:focus {
-    color: var(--secondary-color);
-}
-
-.note {
-    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-}
-
-.center-text {
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.8em;
-    color: #777;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
 #darkModeToggle {
@@ -124,6 +73,7 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .collapsible {
@@ -158,24 +108,20 @@ footer {
     transition: width 0.5s ease-in-out;
 }
 
-#weather-forecast {
+.weather-container {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 15px;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding-bottom: 10px;
 }
 
 .weather-day {
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    flex: 0 0 auto;
+    text-align: center;
     padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-}
-
-.weather-date {
-    font-weight: bold;
-    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-right: 10px;
 }
 
 .weather-icon {
@@ -183,92 +129,9 @@ footer {
     margin-bottom: 5px;
 }
 
-.weather-description, .weather-wind, .weather-temp {
-    margin-bottom: 5px;
-}
-
-.image-gallery-container {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) var(--background-color);
-}
-
-.image-gallery {
-    display: flex;
-    gap: 15px;
-    padding: 10px 0;
-}
-
-.image-gallery img {
-    width: 280px;
-    height: 210px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.image-gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* カスタムスクロールバーのスタイル（Webkit系ブラウザ用） */
-.image-gallery-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.image-gallery-container::-webkit-scrollbar-track {
-    background: var(--background-color);
-}
-
-.image-gallery-container::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 20px;
-    border: 3px solid var(--background-color);
-}
-
-@media print {
-    body {
-        font-size: 12pt;
-    }
-    .card {
-        page-break-inside: avoid;
-    }
-    #darkModeToggle, .toggle-btn {
-        display: none;
-    }
-    .collapsible {
-        display: block !important;
-    }
-}
-
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-        font-size: 14px;
-    }
-    h1 {
-        font-size: 2em;
-    }
-    h2 {
-        font-size: 1.5em;
-    }
-    h3 {
-        font-size: 1.2em;
-    }
-    .card {
-        padding: 15px;
-    }
-    .map-container {
-        padding-bottom: 100%;
-    }
-    .weather-day {
-        flex-basis: calc(33% - 10px);
-    }
-    .image-gallery img {
-        width: 240px;
-        height: 180px;
-    }
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #777;
 }
