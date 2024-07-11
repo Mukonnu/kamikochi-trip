@@ -1,5 +1,3 @@
-// 松本市の地域コード
-const MATSUMOTO_AREA_CODE = '200020';
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const darkModeToggle = document.getElementById('darkModeToggle');
@@ -69,17 +67,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     async function fetchWeatherForecast() {
         const weatherContainer = document.getElementById('weather-forecast');
         try {
-            const response = await fetch('http://localhost:3000/weather'); // プロキシサーバーのURLを使用
+            const response = await fetch('weather.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
     
             // 中部地域の天気予報データを取得
-            const chubuArea = data[0].timeSeries[0].areas.find(area => area.area.name === "中部");
+            const chubuArea = data.timeSeries[0].areas.find(area => area.area.name === "中部");
     
             // 3日間の天気予報を取得
-            const timeDefines = data[0].timeSeries[0].timeDefines.slice(0, 3);
+            const timeDefines = data.timeSeries[0].timeDefines.slice(0, 3);
             const weatherCodes = chubuArea.weatherCodes.slice(0, 3);
             const weathers = chubuArea.weathers.slice(0, 3);
             const winds = chubuArea.winds.slice(0, 3);
