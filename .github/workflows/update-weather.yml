@@ -1,0 +1,21 @@
+name: Update Weather Data
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # 3時間ごとに実行
+  workflow_dispatch:  # 手動実行用
+
+jobs:
+  update-weather:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Fetch weather data
+      run: |
+        curl "https://www.jma.go.jp/bosai/forecast/data/forecast/200000.json" | jq '.[0]' > weather.json
+    - name: Commit and push if changed
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add weather.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update weather data" && git push)
