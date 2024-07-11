@@ -70,37 +70,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     // 天気予報の取得と表示
-    async function fetchWeatherForecast() {
-        const weatherContainer = document.getElementById('weather-forecast');
-        try {
-            const response = await fetch('weather.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-    
-            // 中部地域の天気予報データを取得
-            const chubuArea = data.timeSeries[0].areas.find(area => area.area.name === "中部");
-    
-            // 3日間の天気予報を取得
-            const timeDefines = data.timeSeries[0].timeDefines.slice(0, 3);
-            const weatherCodes = chubuArea.weatherCodes.slice(0, 3);
-    
-            // 3日分の天気予報を表示
-            weatherContainer.innerHTML = timeDefines.map((time, index) => {
-                const date = new Date(time);
-                return `
-                    <div class="weather-day">
-                        <div class="weather-date">${date.toLocaleDateString('ja-JP', {month: 'short', day: 'numeric'})}</div>
-                        <div class="weather-icon">${getWeatherIcon(weatherCodes[index])}</div>
-                    </div>
-                `;
-            }).join('');
-        } catch (error) {
-            console.error('天気データの取得に失敗しました:', error);
-            weatherContainer.innerHTML = '<p>天気情報を取得できませんでした。</p>';
+async function fetchWeatherForecast() {
+    const weatherContainer = document.getElementById('weather-forecast');
+    try {
+        const response = await fetch('weather.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+        const data = await response.json();
+
+        // 中部地域の天気予報データを取得
+        const chubuArea = data.timeSeries[0].areas.find(area => area.area.name === "中部");
+
+        // 3日間の天気予報を取得
+        const timeDefines = data.timeSeries[0].timeDefines.slice(0, 3);
+        const weatherCodes = chubuArea.weatherCodes.slice(0, 3);
+
+        // 気温データを取得（松本市のデータを使用）
+        const tempsData = data.timeSeries[2].areas.find(area => area.area.name === "松本");
+        const temps = tempsData.temps;
+
+        // 3日分の天気予報を表示
+        weatherContainer.innerHTML = timeDefines.map((time, index) => {
+            const date = new Date(time);
+            const tempIndex = index * 2;
+            const tempHigh = temps[tempIndex + 1] || '--';
+            const tempLow = temps[tempIndex] || '--';
+            return `
+                <div class="weather-day">
+                    <div class="weather-date">${date.toLocaleDateString('ja-JP', {month: 'short', day: 'numeric'})}</div>
+                    <div class="weather-icon">${getWeatherIcon(weatherCodes[index])}</div>
+                    <div class="weather-temp">${tempLow}°C / ${tempHigh}°C</div>
+                </div>
+            `;
+        }).join('');
+    } catch (error) {
+        console.error('天気データの取得に失敗しました:', error);
+        weatherContainer.innerHTML = '<p>天気情報を取得できませんでした。</p>';
     }
+}
 
     function getWeatherIcon(code) {
         const icons = {
