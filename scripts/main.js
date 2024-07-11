@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const body = document.body;
     const toggleButtons = document.querySelectorAll('.toggle-btn');
     const checklistItems = document.querySelectorAll('#checklist input[type="checkbox"]');
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
 
     // ダークモードの切り替え
     darkModeToggle.addEventListener('click', () => {
@@ -14,6 +16,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (localStorage.getItem('darkMode') === 'true') {
         body.classList.add('dark-mode');
     }
+
+    // モバイルメニューの切り替え
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    });
 
     // 日程の展開/折りたたみ
     toggleButtons.forEach(button => {
@@ -71,14 +78,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-
+    
             // 中部地域の天気予報データを取得
             const chubuArea = data.timeSeries[0].areas.find(area => area.area.name === "中部");
-
+    
             // 3日間の天気予報を取得
-            const timeDefines = data.timeSeries[0].timeDefines;
-            const weatherCodes = chubuArea.weatherCodes;
-
+            const timeDefines = data.timeSeries[0].timeDefines.slice(0, 3);
+            const weatherCodes = chubuArea.weatherCodes.slice(0, 3);
+    
             // 3日分の天気予報を表示
             weatherContainer.innerHTML = timeDefines.map((time, index) => {
                 const date = new Date(time);
@@ -112,7 +119,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const day1Date = new Date('2024-07-12');
         const day2Date = new Date('2024-07-13');
 
-    if (today.toDateString() === day1Date.toDateString()) {
+        if (today.toDateString() === day1Date.toDateString()) {
             document.getElementById('day1').classList.add('highlight');
         } else if (today.toDateString() === day2Date.toDateString()) {
             document.getElementById('day2').classList.add('highlight');
