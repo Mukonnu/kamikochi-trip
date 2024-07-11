@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', (event) => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
@@ -72,33 +71,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-    
+
             // 中部地域の天気予報データを取得
             const chubuArea = data.timeSeries[0].areas.find(area => area.area.name === "中部");
-    
+
             // 3日間の天気予報を取得
             const timeDefines = data.timeSeries[0].timeDefines;
             const weatherCodes = chubuArea.weatherCodes;
-            const weathers = chubuArea.weathers;
-            const winds = chubuArea.winds;
 
-            // 気温データを取得（松本市のデータを使用）
-            const tempsData = data.timeSeries[2].areas.find(area => area.area.name === "松本");
-            const temps = tempsData.temps;
-    
             // 3日分の天気予報を表示
-            weatherContainer.innerHTML = timeDefines.map((time, index) => `
-                <div class="weather-day">
-                    <div class="weather-date">${new Date(time).toLocaleDateString('ja-JP', {month: 'short', day: 'numeric'})}</div>
-                    <div class="weather-icon">${getWeatherIcon(weatherCodes[index])}</div>
-                    <div class="weather-description">${weathers[index]}</div>
-                    <div class="weather-wind">${winds[index]}</div>
-                    <div class="weather-temp">${temps[index * 2] || '--'}°C / ${temps[index * 2 + 1] || '--'}°C</div>
-                </div>
-            `).join('');
+            weatherContainer.innerHTML = timeDefines.map((time, index) => {
+                const date = new Date(time);
+                return `
+                    <div class="weather-day">
+                        <div class="weather-date">${date.toLocaleDateString('ja-JP', {month: 'short', day: 'numeric'})}</div>
+                        <div class="weather-icon">${getWeatherIcon(weatherCodes[index])}</div>
+                    </div>
+                `;
+            }).join('');
         } catch (error) {
             console.error('天気データの取得に失敗しました:', error);
-            weatherContainer.innerHTML = '<p>天気情報を取得できませんでした。しばらくしてから再度お試しください。</p>';
+            weatherContainer.innerHTML = '<p>天気情報を取得できませんでした。</p>';
         }
     }
 
@@ -113,24 +106,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return icons[code] || '🌈';
     }
 
-    function getWeatherText(code) {
-        const weatherTexts = {
-            '100': '晴れ', '101': '晴れ時々曇り', '102': '晴れ一時雨', '103': '晴れ時々雨', '104': '晴れ一時雪', '105': '晴れ時々雪', '106': '晴れ一時雨か雪', '107': '晴れ時々雨か雪', '108': '晴れ一時雨か雷雨', '110': '晴れ後時々曇り', '111': '晴れ後曇り', '112': '晴れ後一時雨', '113': '晴れ後時々雨', '114': '晴れ後雨', '115': '晴れ後一時雪',
-            '200': '曇り', '201': '曇り時々晴れ', '202': '曇り一時雨', '203': '曇り時々雨', '204': '曇り一時雪', '205': '曇り時々雪', '206': '曇り一時雨か雪', '207': '曇り時々雨か雪', '208': '曇り一時雨か雷雨', '209': '霧', '210': '曇り後時々晴れ', '211': '曇り後晴れ', '212': '曇り後一時雨', '213': '曇り後時々雨', '214': '曇り後雨', '215': '曇り後一時雪',
-            '300': '雨', '301': '雨時々晴れ', '302': '雨時々止む', '303': '雨時々雪', '304': '雨か雪', '306': '大雨', '307': '風雨共に強い', '308': '雨で暴風を伴う', '309': '雨一時雪', '311': '雨後晴れ', '313': '雨後曇り', '314': '雨後時々雪', '315': '雨後雪',
-            '400': '雪', '401': '雪時々晴れ', '402': '雪時々止む', '403': '雪時々雨', '405': '大雪', '406': '風雪強い', '407': '暴風雪', '409': '雪一時雨', '411': '雪後晴れ', '413': '雪後曇り', '414': '雪後雨', '415': '雪後みぞれ',
-            '500': '雨か雪', '501': 'まじりの雨', '502': 'みぞれ', '503': '雨か雪後晴れ', '504': '雨か雪後曇り', '505': '雨か雪後雨', '506': '雨か雪後雪', '507': '霧雨', '508': '雨と雷', '509': '雪と雷',
-        };
-        return weatherTexts[code] || '不明';
-    }
-
     // 現在の日付に基づいて該当する日をハイライト
     function highlightCurrentDay() {
         const today = new Date();
         const day1Date = new Date('2024-07-12');
         const day2Date = new Date('2024-07-13');
 
-        if (today.toDateString() === day1Date.toDateString()) {
+    if (today.toDateString() === day1Date.toDateString()) {
             document.getElementById('day1').classList.add('highlight');
         } else if (today.toDateString() === day2Date.toDateString()) {
             document.getElementById('day2').classList.add('highlight');
