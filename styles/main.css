@@ -12,8 +12,7 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     margin: 0;
-    padding: 10px;
-    box-sizing: border-box;
+    padding-top: 60px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -26,36 +25,60 @@ body.dark-mode {
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
+.navbar {
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
-h1, h2, h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-}
-
-h1 {
-    font-size: 2em;
-}
-
-h2 {
-    font-size: 1.5em;
-}
-
-h3 {
+.navbar-brand {
+    color: white;
     font-size: 1.2em;
+    font-weight: bold;
 }
 
-.card {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin-bottom: 20px;
+.navbar-nav {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+.navbar-nav li {
+    margin: 10px 0;
+}
+
+.navbar-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.navbar-toggler {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 #darkModeToggle {
@@ -65,32 +88,36 @@ h3 {
     cursor: pointer;
 }
 
+h1, h2, h3 {
+    color: var(--primary-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 .toggle-btn {
     background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 8px 15px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 10px;
     width: 100%;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+    background-color: var(--secondary-color);
 }
 
 .collapsible {
     display: none;
-}
-
-#checklist {
-    list-style-type: none;
-    padding: 0;
-}
-
-#checklist li {
-    margin-bottom: 10px;
-}
-
-#checklist input[type="checkbox"] {
-    margin-right: 10px;
 }
 
 .progress-bar {
@@ -108,11 +135,10 @@ h3 {
     transition: width 0.5s ease-in-out;
 }
 
-.weather-container {
+#weather-forecast {
     display: flex;
-    justify-content: space-between;
     overflow-x: auto;
-    padding-bottom: 10px;
+    gap: 10px;
 }
 
 .weather-day {
@@ -121,21 +147,37 @@ h3 {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
-    margin-right: 10px;
-    min-width: 80px;
 }
 
-.weather-icon {
-    font-size: 2em;
-    margin-bottom: 5px;
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin: 20px 0;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+#checklist {
+    list-style-type: none;
+    padding: 0;
+}
+
+#checklist li {
+    margin-bottom: 10px;
+}
+
+#checklist input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 .image-gallery-container {
     width: 100%;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) var(--background-color);
 }
 
 .image-gallery {
@@ -149,7 +191,6 @@ h3 {
     height: 210px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -157,36 +198,31 @@ h3 {
     transform: scale(1.05);
 }
 
+.center-text {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 footer {
     text-align: center;
     margin-top: 20px;
-    font-size: 0.8em;
-    color: #777;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
 }
 
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
+@media (min-width: 768px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
     }
-    
-    h1 {
-        font-size: 1.8em;
+
+    .navbar-toggler {
+        display: none;
     }
-    
-    h2 {
-        font-size: 1.4em;
-    }
-    
-    h3 {
-        font-size: 1.1em;
-    }
-    
-    .card {
-        padding: 12px;
-    }
-    
-    .image-gallery img {
-        width: 240px;
-        height: 180px;
+
+    .navbar-nav li {
+        margin: 0 10px;
     }
 }
